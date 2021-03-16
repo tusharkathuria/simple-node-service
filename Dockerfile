@@ -1,6 +1,8 @@
 # Use NodeJS base image
 FROM node:13
 
+ENV PIPELINE=$PIPELINE
+
 # Create app directory
 WORKDIR /usr/src/app
 
