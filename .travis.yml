@@ -13,7 +13,7 @@ before-script:
 
 script:
   - docker --version
-  - docker build -t simple-node .
+  - docker build -t simple-node --build-arg PIPELINE=${PIPELINE} .
   - docker tag simple-node tusharkathuria/simple-node:latest
 
 after-success:
