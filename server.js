@@ -1,14 +1,12 @@
-require('dotenv').config()
+import express from 'express';
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
+const app = express();
 
-async function main() {
-  while(true) {
-    console.log(`Containers rule! Pipeline: ${process.env.PIPELINE}`);
-    await sleep(5000);
-  }
-}
+app.get( "/", async ( req, res ) => {
+  res.send("HelloWorld");
+});
 
-main();
+app.listen(8080, () => {
+  console.log( `server running http://localhost:8080` );
+  console.log( `press CTRL+C to stop server` );
+});
