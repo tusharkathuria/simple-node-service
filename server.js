@@ -6,7 +6,7 @@ app.get( "/", async ( req, res ) => {
   res.send("HelloWorld");
 });
 
-app.listen(8080, () => {
-  console.log( `server running http://localhost:8080` );
+app.listen(80, () => {
+  console.log( `server running http://localhost` );
   console.log( `press CTRL+C to stop server` );
 });
