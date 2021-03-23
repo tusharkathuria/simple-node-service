@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-node
+  labels:
+    app: simple-node
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-node
+  template:
+    metadata:
+      labels:
+        app: simple-node
+    spec:
+      containers:
+      - name: simple-node
+        image: tusharkathuria/simple-node
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 3
+          periodSeconds: 3
